@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import httpStatus from "http-status";
 import AppError from "../../Error/AppError";
 import { TProducts } from "./product.interface";
@@ -42,8 +43,8 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
 
   try {
     const {
-      page = 1,
-      limit = 10,
+      // page = 1,
+      // limit = 10,
       sort = "createdAt",
       order = "desc",
       search = "",
@@ -52,7 +53,7 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
       category,
     } = query;
 
-    let queryField: any = {};
+    const queryField: any = {};
 
     if (search) {
       // search
@@ -74,7 +75,7 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
     }
 
     // sorting
-    let sortValue: any = {};
+    const sortValue: any = {};
     // Set default sorting option
     if (!sort) {
       sortValue.createdAt = -1; // Default to sort by createdAt descending

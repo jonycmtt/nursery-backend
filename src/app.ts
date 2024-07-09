@@ -1,5 +1,5 @@
 import cors from "cors";
-import express, { Application, json, Request, Response } from "express";
+import express, { Application, Request, Response } from "express";
 import httpStatus from "http-status";
 import router from "./app/modules/products/product.route";
 import CategoryRouter from "./app/modules/category/category.route";

@@ -1,5 +1,3 @@
-import { Types } from "mongoose";
-
 export type TProducts = {
   title: string;
   brand: string;
