@@ -1,7 +1,7 @@
 import mongoose, { model, Mongoose, Schema } from "mongoose";
 import { TProducts } from "./product.interface";
 
-const ProductSchema = new Schema<TProducts>({
+const ProductCreateSchema = new Schema<TProducts>({
   title: {
     type: String,
     required: [true, "Title is required"],
@@ -34,4 +34,4 @@ const ProductSchema = new Schema<TProducts>({
   },
 });
 
-export const Product = model<TProducts>("Product", ProductSchema);
+export const Product = model<TProducts>("Product", ProductCreateSchema);
