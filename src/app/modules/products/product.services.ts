@@ -87,6 +87,12 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
         case "price":
           sortValue.price = order === "desc" ? -1 : 1;
           break;
+
+        case "relevance":
+          if (search) {
+            sortValue.score = { $meta: "textScore" };
+          }
+          break;
         // Add more cases for additional sorting options
         default:
           sortValue.createdAt = order === "desc" ? -1 : 1; // Default to sort by createdAt
