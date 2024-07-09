@@ -9,7 +9,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-// application route
+// application routes
 app.use("/api/products", router);
 app.use("/api/categories", CategoryRouter);
 
