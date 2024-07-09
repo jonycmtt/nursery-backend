@@ -78,7 +78,7 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
     const sortValue: any = {};
     // Set default sorting option
     if (!sort) {
-      sortValue.createdAt = -1; // Default to sort by createdAt descending
+      sortValue.createdAt = -1;
     } else {
       // Handle different sorting options
       switch (sort.toString().toLowerCase()) {
@@ -94,9 +94,9 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
             sortValue.score = { $meta: "textScore" };
           }
           break;
-        // Add more cases for additional sorting options
+
         default:
-          sortValue.createdAt = order === "desc" ? -1 : 1; // Default to sort by createdAt
+          sortValue.createdAt = order === "desc" ? -1 : 1;
           break;
       }
     }
