@@ -24,8 +24,7 @@ const ProductCreateSchema = new Schema<TProducts>({
     default: 0,
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
+    type: String,
     required: [true, "Category is required"],
   },
   imageUrl: {

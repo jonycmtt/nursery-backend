@@ -6,6 +6,6 @@ export type TProducts = {
   price: number;
   description: string;
   rating: number;
-  category: Types.ObjectId;
+  category: string;
   imageUrl: string;
 };
