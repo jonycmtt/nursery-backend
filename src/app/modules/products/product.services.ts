@@ -17,7 +17,7 @@ const getSingleProductFromDB = async (id: string) => {
   if (!isProduct) {
     throw new AppError(httpStatus.NOT_FOUND, "product not found");
   }
-  return await Product.findById(id);
+  return await Product.findById(id).populate("category");
 };
 
 // product update
