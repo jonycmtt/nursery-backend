@@ -73,7 +73,28 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
       queryField.category = category;
     }
 
-    const result = await Product.find(queryField);
+    // sorting
+    let sortValue: any = {};
+    // Set default sorting option
+    if (!sort) {
+      sortValue.createdAt = -1; // Default to sort by createdAt descending
+    } else {
+      // Handle different sorting options
+      switch (sort.toString().toLowerCase()) {
+        case "title":
+          sortValue.title = order === "desc" ? -1 : 1;
+          break;
+        case "price":
+          sortValue.price = order === "desc" ? -1 : 1;
+          break;
+        // Add more cases for additional sorting options
+        default:
+          sortValue.createdAt = order === "desc" ? -1 : 1; // Default to sort by createdAt
+          break;
+      }
+    }
+
+    const result = await Product.find(queryField).sort(sortValue);
     return result;
   } catch (error) {
     throw new AppError(httpStatus.NOT_FOUND, "not found");
