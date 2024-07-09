@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { Application, json, Request, Response } from "express";
 import httpStatus from "http-status";
 import router from "./app/modules/products/product.route";
+import CategoryRouter from "./app/modules/category/category.route";
 
 const app: Application = express();
 //  parser
@@ -10,6 +11,7 @@ app.use(cors());
 
 // application route
 app.use("/api/products", router);
+app.use("/api/categories", CategoryRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({

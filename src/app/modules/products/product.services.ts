@@ -9,7 +9,7 @@ const createProductIntoDB = async (payload: TProducts) => {
 };
 // get product
 const getAllProductFromDB = async () => {
-  return await Product.find();
+  return await Product.find().populate("category");
 };
 // get product
 const getSingleProductFromDB = async (id: string) => {
