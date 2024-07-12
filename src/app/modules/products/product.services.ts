@@ -67,7 +67,7 @@ const getAllProductFromDB = async (query: Record<string, unknown>) => {
     if (minPrice || maxPrice) {
       queryField.price = {};
       if (minPrice) queryField.price.$gte = Number(minPrice);
-      if (maxPrice) queryField.price.$gte = Number(maxPrice);
+      if (maxPrice) queryField.price.$lte = Number(maxPrice);
     }
 
     if (category) {

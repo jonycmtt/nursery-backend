@@ -1,6 +1,11 @@
+export type TInventory = {
+  quantity: number;
+  inStock: boolean;
+};
+
 export type TProducts = {
   title: string;
-  brand: string;
+  inventory: TInventory;
   price: number;
   description: string;
   rating: number;

@@ -1,14 +1,26 @@
 import { model, Schema } from "mongoose";
-import { TProducts } from "./product.interface";
+import { TInventory, TProducts } from "./product.interface";
+
+// Define the Inventory schema
+const inventorySchema = new Schema<TInventory>({
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  inStock: {
+    type: Boolean,
+    required: true,
+  },
+});
 
 const ProductCreateSchema = new Schema<TProducts>({
   title: {
     type: String,
     required: [true, "Title is required"],
   },
-  brand: {
-    type: String,
-    required: [true, "Brand is required"],
+  inventory: {
+    type: inventorySchema,
+    required: true,
   },
   description: {
     type: String,
