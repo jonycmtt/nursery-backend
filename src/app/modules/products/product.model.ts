@@ -13,6 +13,7 @@ const ProductCreateSchema = new Schema<TProducts>({
   inStock: {
     type: Boolean,
     required: true,
+    default: true,
   },
   description: {
     type: String,

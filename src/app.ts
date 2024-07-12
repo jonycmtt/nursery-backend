@@ -3,6 +3,7 @@ import express, { Application, Request, Response } from "express";
 import httpStatus from "http-status";
 import router from "./app/modules/products/product.route";
 import CategoryRouter from "./app/modules/category/category.route";
+import OrderRouter from "./app/modules/order/order.route";
 
 const app: Application = express();
 //  parser
@@ -12,6 +13,7 @@ app.use(cors());
 // application routes
 app.use("/api/products", router);
 app.use("/api/categories", CategoryRouter);
+app.use("/api/orders", OrderRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({
