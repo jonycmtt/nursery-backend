@@ -1,13 +1,18 @@
 export type TOrder = {
-  productId: string;
+  productItem: {
+    _id: string;
+    quantity: number;
+    title: string;
+    category: string;
+    imageUrl: string;
+  }[];
   name: string;
   email: string;
-  price: number;
-  quantity: number;
   phoneNumber: string;
   company: string;
   address: string;
   city: string;
   postCode: string;
-  county: string;
+  country: string;
+  TotalPrice: number;
 };
