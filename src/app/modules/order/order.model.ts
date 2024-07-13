@@ -23,6 +23,8 @@ const OrderSchema = new Schema<TOrder>({
   city: { type: String, required: true },
   postCode: { type: String, required: true },
   country: { type: String, required: true },
+  CashOnDelivery: { type: Boolean, required: true, default: false },
+  StripePayment: { type: Boolean, required: true, default: false },
 });
 
 export const Order = model<TOrder>("Order", OrderSchema);

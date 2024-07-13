@@ -15,4 +15,6 @@ export type TOrder = {
   postCode: string;
   country: string;
   TotalPrice: number;
+  CashOnDelivery: boolean;
+  StripePayment: boolean;
 };
